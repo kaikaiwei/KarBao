@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+#import "GeneralNavigationController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -17,6 +19,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [self setTheDefaultAppear];
+    
+    
+    self.tabController = (UITabBarController *) self.window.rootViewController;
+    UIViewController *createController = [self.tabController.storyboard instantiateViewControllerWithIdentifier:@"CreateUserController"];
+    self.createNavController = [[UINavigationController alloc] initWithRootViewController:createController];
+    
+    [self.tabController presentViewController:self.createNavController animated:YES completion:^{
+        
+    }];
+    
+    
+    
+    
     return YES;
 }
 
@@ -40,6 +57,40 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+/**
+ *  设置UINavigationController的默认出现颜色等信息
+ *
+ */
+- (void) setTheDefaultAppear
+{
+    // 系统状态栏采用浅色
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    [[UITabBar appearance] setTintColor:[UIColor blackColor]];
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                       [UIFont fontWithName:@"ArialMT" size:15.0], NSFontAttributeName, nil] forState:UIControlStateNormal];
+    // [[UITableView appearance] setSectionIndexBackgroundColor:[UIColor colorWithR:255 G:255 B:255 A:100]];
+    
+    // 导航栏设置默认背景和系统UI颜色
+//    [[UINavigationBar appearanceWhenContainedIn:[GeneralNavigationController class], nil] setBackgroundImage:[UIImage imageNamed:@"BarTopAll"] forBarMetrics:UIBarMetricsDefault];
+//    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    // 导航栏设置默认文字字体效果和颜色
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
+    shadow.shadowOffset = CGSizeMake(0, 1);
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                          [UIColor colorWithRed:245 green:245 blue:245 alpha:255], NSForegroundColorAttributeName,
+                                                          shadow, NSShadowAttributeName,
+                                                          [UIFont fontWithName:@"ArialMT" size:24.0], NSFontAttributeName, nil]];
+}
+
+
++(AppDelegate *) sharedAppDelegate
+{
+    return (AppDelegate *)[UIApplication sharedApplication].delegate;
 }
 
 @end

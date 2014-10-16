@@ -12,6 +12,12 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (nonatomic, retain) UITabBarController *tabController;
+
+@property (nonatomic, retain) UINavigationController *createNavController;
+
+
++(AppDelegate *) sharedAppDelegate;
 
 @end
 
