@@ -1,0 +1,278 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F882A6F319EFB24500DC4EFA /* QRUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F882A6F219EFB24500DC4EFA /* QRUtil.m */; };
+		F882A6F619EFB57500DC4EFA /* QrSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F882A6F519EFB57500DC4EFA /* QrSearchViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F882A69419EF8D2100DC4EFA /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		F882A69619EF8D2100DC4EFA /* libqrcode.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libqrcode.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F882A6A419EF8D2100DC4EFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F882A6F119EFB24500DC4EFA /* QRUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRUtil.h; sourceTree = SOURCE_ROOT; };
+		F882A6F219EFB24500DC4EFA /* QRUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRUtil.m; sourceTree = SOURCE_ROOT; };
+		F882A6F419EFB57500DC4EFA /* QrSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QrSearchViewController.h; sourceTree = SOURCE_ROOT; };
+		F882A6F519EFB57500DC4EFA /* QrSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QrSearchViewController.m; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F882A69319EF8D2100DC4EFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F882A68D19EF8D2100DC4EFA = {
+			isa = PBXGroup;
+			children = (
+				F882A69819EF8D2100DC4EFA /* qrcode */,
+				F882A6A219EF8D2100DC4EFA /* qrcodeTests */,
+				F882A6F019EFB10000DC4EFA /* Frameworks */,
+				F882A69719EF8D2100DC4EFA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F882A69719EF8D2100DC4EFA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F882A69619EF8D2100DC4EFA /* libqrcode.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F882A69819EF8D2100DC4EFA /* qrcode */ = {
+			isa = PBXGroup;
+			children = (
+				F882A6F119EFB24500DC4EFA /* QRUtil.h */,
+				F882A6F219EFB24500DC4EFA /* QRUtil.m */,
+				F882A6F419EFB57500DC4EFA /* QrSearchViewController.h */,
+				F882A6F519EFB57500DC4EFA /* QrSearchViewController.m */,
+			);
+			path = qrcode;
+			sourceTree = "<group>";
+		};
+		F882A6A219EF8D2100DC4EFA /* qrcodeTests */ = {
+			isa = PBXGroup;
+			children = (
+				F882A6A319EF8D2100DC4EFA /* Supporting Files */,
+			);
+			path = qrcodeTests;
+			sourceTree = "<group>";
+		};
+		F882A6A319EF8D2100DC4EFA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F882A6A419EF8D2100DC4EFA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F882A6F019EFB10000DC4EFA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F882A69519EF8D2100DC4EFA /* qrcode */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F882A6A719EF8D2100DC4EFA /* Build configuration list for PBXNativeTarget "qrcode" */;
+			buildPhases = (
+				F882A69219EF8D2100DC4EFA /* Sources */,
+				F882A69319EF8D2100DC4EFA /* Frameworks */,
+				F882A69419EF8D2100DC4EFA /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = qrcode;
+			productName = qrcode;
+			productReference = F882A69619EF8D2100DC4EFA /* libqrcode.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F882A68E19EF8D2100DC4EFA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = Caland;
+				TargetAttributes = {
+					F882A69519EF8D2100DC4EFA = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+				};
+			};
+			buildConfigurationList = F882A69119EF8D2100DC4EFA /* Build configuration list for PBXProject "qrcode" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F882A68D19EF8D2100DC4EFA;
+			productRefGroup = F882A69719EF8D2100DC4EFA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F882A69519EF8D2100DC4EFA /* qrcode */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F882A69219EF8D2100DC4EFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F882A6F319EFB24500DC4EFA /* QRUtil.m in Sources */,
+				F882A6F619EFB57500DC4EFA /* QrSearchViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F882A6A519EF8D2100DC4EFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F882A6A619EF8D2100DC4EFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F882A6A819EF8D2100DC4EFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F882A6A919EF8D2100DC4EFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F882A69119EF8D2100DC4EFA /* Build configuration list for PBXProject "qrcode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F882A6A519EF8D2100DC4EFA /* Debug */,
+				F882A6A619EF8D2100DC4EFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F882A6A719EF8D2100DC4EFA /* Build configuration list for PBXNativeTarget "qrcode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F882A6A819EF8D2100DC4EFA /* Debug */,
+				F882A6A919EF8D2100DC4EFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F882A68E19EF8D2100DC4EFA /* Project object */;
+}
