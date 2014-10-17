@@ -7,6 +7,7 @@
 //
 
 #import "CardDetailViewController.h"
+#import "QRUtil.h"
 
 @implementation CardDetailViewController
 
@@ -30,6 +31,10 @@
 - (IBAction) updateQrCode:(id)sender
 {
     NSLog(@"%s", __FUNCTION__);
+    UIImage *img = [QRUtil generateUsingString:@"http://www.baidu.com"];
+    self.qrcodeImageView.image = img;
+    
+    
 }
 
 @end

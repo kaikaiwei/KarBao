@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "TabbarManager.h"
 #import "GeneralNavigationController.h"
 
 @interface AppDelegate ()
@@ -22,11 +22,12 @@
     
     [self setTheDefaultAppear];
     
-    
-    self.tabController = (UITabBarController *) self.window.rootViewController;
-    UIViewController *createController = [self.tabController.storyboard instantiateViewControllerWithIdentifier:@"CreateUserController"];
+    UINavigationController *nav = (UINavigationController *) self.window.rootViewController;
+    self.tabController = (UITabBarController *) nav.topViewController;
+//    self.tabController = (UITabBarController *) self.window.rootViewController;
+    UIViewController *createController = [[UIStoryboard storyboardWithName:@"ToolKit_iPad" bundle:nil] instantiateViewControllerWithIdentifier:@"CreateUserController"];
     self.createNavController = [[UINavigationController alloc] initWithRootViewController:createController];
-    
+    self.tabController.delegate = [TabbarManager defaultInstance];
     [self.tabController presentViewController:self.createNavController animated:YES completion:^{
         
     }];

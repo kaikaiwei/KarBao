@@ -11,7 +11,7 @@
 @interface CardDetailViewController : UIViewController
 
 
-@property (nonatomic, retain) IBOutlet UIButton *qrcodeButton;
+@property (nonatomic, retain) IBOutlet UIImageView *qrcodeImageView;
 
 
 

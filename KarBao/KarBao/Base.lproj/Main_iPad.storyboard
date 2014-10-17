@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="VAd-S7-RS4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jFF-Pq-5qY">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="5T8-9F-fY4">
+            <objects>
+                <navigationController id="jFF-Pq-5qY" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DHX-lK-U4Y">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="VAd-S7-RS4" kind="relationship" relationship="rootViewController" id="68D-fc-WUS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ssh-u2-bbY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3144" y="-159"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="0XF-ll-FRC">
             <objects>
                 <tabBarController id="VAd-S7-RS4" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="bti-rz-S2A"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="whO-2K-82P">
@@ -137,6 +155,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="卡片详情" id="SdY-Jt-3aG"/>
+                    <connections>
+                        <outlet property="qrcodeImageView" destination="pf7-zf-ag2" id="48e-ZT-5oj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fr6-m7-Ln2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -199,36 +220,6 @@
             </objects>
             <point key="canvasLocation" x="-31" y="147"/>
         </scene>
-        <!--Create User View Controller-->
-        <scene sceneID="J61-KF-dvI">
-            <objects>
-                <viewController storyboardIdentifier="CreateUserController" id="qOT-Pn-giw" customClass="CreateUserViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="BI9-pN-EAu"/>
-                        <viewControllerLayoutGuide type="bottom" id="Hc0-zT-pIQ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Su8-M2-VNk">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pIp-xx-Rcv">
-                                <rect key="frame" x="312" y="349" width="120" height="30"/>
-                                <state key="normal" title="加入我们吧" backgroundImage="button1.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="createUser:" destination="qOT-Pn-giw" eventType="touchUpInside" id="KVt-ww-ZLD"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Fxe-uV-OP7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="280" y="1768"/>
-        </scene>
         <!--我来-->
         <scene sceneID="z2g-WB-LPq">
             <objects>
@@ -265,7 +256,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="button1.png" width="120" height="30"/>
         <image name="card1.png" width="435" height="267"/>
         <image name="qrcode1.png" width="300" height="300"/>
         <image name="yan.png" width="421" height="267"/>

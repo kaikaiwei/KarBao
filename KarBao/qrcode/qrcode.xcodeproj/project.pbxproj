@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F882A6F319EFB24500DC4EFA /* QRUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F882A6F219EFB24500DC4EFA /* QRUtil.m */; };
+		F882A6F319EFB24500DC4EFA /* QRUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = F882A6F219EFB24500DC4EFA /* QRUtil.mm */; };
 		F882A6F619EFB57500DC4EFA /* QrSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F882A6F519EFB57500DC4EFA /* QrSearchViewController.m */; };
+		F8BF1ED319F0AB6D005D7589 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8BF1ED219F0AB6D005D7589 /* AVFoundation.framework */; };
+		F8BF1ED519F0AB76005D7589 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8BF1ED419F0AB76005D7589 /* Foundation.framework */; };
+		F8BF1EDD19F0B01D005D7589 /* DataMatrix.mm in Sources */ = {isa = PBXBuildFile; fileRef = F8BF1ED819F0B01D005D7589 /* DataMatrix.mm */; };
+		F8BF1EDE19F0B01D005D7589 /* QR_Encode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8BF1ED919F0B01D005D7589 /* QR_Encode.cpp */; };
+		F8BF1EDF19F0B01D005D7589 /* QREncoder.mm in Sources */ = {isa = PBXBuildFile; fileRef = F8BF1EDC19F0B01D005D7589 /* QREncoder.mm */; };
+		F8BF1EE619F0C1E9005D7589 /* QrCodeNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8BF1EE519F0C1E9005D7589 /* QrCodeNavigationController.m */; };
+		F8BF1EF119F0E751005D7589 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F8BF1EF019F0E751005D7589 /* libstdc++.dylib */; };
+		F8BF1EF319F0E8E3005D7589 /* libcommonCrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F8BF1EF219F0E8E3005D7589 /* libcommonCrypto.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,9 +35,21 @@
 		F882A69619EF8D2100DC4EFA /* libqrcode.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libqrcode.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F882A6A419EF8D2100DC4EFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F882A6F119EFB24500DC4EFA /* QRUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRUtil.h; sourceTree = SOURCE_ROOT; };
-		F882A6F219EFB24500DC4EFA /* QRUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRUtil.m; sourceTree = SOURCE_ROOT; };
+		F882A6F219EFB24500DC4EFA /* QRUtil.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = QRUtil.mm; sourceTree = SOURCE_ROOT; };
 		F882A6F419EFB57500DC4EFA /* QrSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QrSearchViewController.h; sourceTree = SOURCE_ROOT; };
 		F882A6F519EFB57500DC4EFA /* QrSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QrSearchViewController.m; sourceTree = SOURCE_ROOT; };
+		F8BF1ED219F0AB6D005D7589 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		F8BF1ED419F0AB76005D7589 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F8BF1ED719F0B01D005D7589 /* DataMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataMatrix.h; sourceTree = "<group>"; };
+		F8BF1ED819F0B01D005D7589 /* DataMatrix.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DataMatrix.mm; sourceTree = "<group>"; };
+		F8BF1ED919F0B01D005D7589 /* QR_Encode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QR_Encode.cpp; sourceTree = "<group>"; };
+		F8BF1EDA19F0B01D005D7589 /* QR_Encode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QR_Encode.h; sourceTree = "<group>"; };
+		F8BF1EDB19F0B01D005D7589 /* QREncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QREncoder.h; sourceTree = "<group>"; };
+		F8BF1EDC19F0B01D005D7589 /* QREncoder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = QREncoder.mm; sourceTree = "<group>"; };
+		F8BF1EE419F0C1E9005D7589 /* QrCodeNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QrCodeNavigationController.h; sourceTree = SOURCE_ROOT; };
+		F8BF1EE519F0C1E9005D7589 /* QrCodeNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QrCodeNavigationController.m; sourceTree = SOURCE_ROOT; };
+		F8BF1EF019F0E751005D7589 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		F8BF1EF219F0E8E3005D7589 /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +57,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8BF1EF319F0E8E3005D7589 /* libcommonCrypto.dylib in Frameworks */,
+				F8BF1EF119F0E751005D7589 /* libstdc++.dylib in Frameworks */,
+				F8BF1ED519F0AB76005D7589 /* Foundation.framework in Frameworks */,
+				F8BF1ED319F0AB6D005D7589 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +70,7 @@
 		F882A68D19EF8D2100DC4EFA = {
 			isa = PBXGroup;
 			children = (
+				F8BF1ED619F0B01D005D7589 /* qrencoder */,
 				F882A69819EF8D2100DC4EFA /* qrcode */,
 				F882A6A219EF8D2100DC4EFA /* qrcodeTests */,
 				F882A6F019EFB10000DC4EFA /* Frameworks */,
@@ -65,9 +90,11 @@
 			isa = PBXGroup;
 			children = (
 				F882A6F119EFB24500DC4EFA /* QRUtil.h */,
-				F882A6F219EFB24500DC4EFA /* QRUtil.m */,
+				F882A6F219EFB24500DC4EFA /* QRUtil.mm */,
 				F882A6F419EFB57500DC4EFA /* QrSearchViewController.h */,
 				F882A6F519EFB57500DC4EFA /* QrSearchViewController.m */,
+				F8BF1EE419F0C1E9005D7589 /* QrCodeNavigationController.h */,
+				F8BF1EE519F0C1E9005D7589 /* QrCodeNavigationController.m */,
 			);
 			path = qrcode;
 			sourceTree = "<group>";
@@ -91,8 +118,25 @@
 		F882A6F019EFB10000DC4EFA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F8BF1EF219F0E8E3005D7589 /* libcommonCrypto.dylib */,
+				F8BF1EF019F0E751005D7589 /* libstdc++.dylib */,
+				F8BF1ED419F0AB76005D7589 /* Foundation.framework */,
+				F8BF1ED219F0AB6D005D7589 /* AVFoundation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F8BF1ED619F0B01D005D7589 /* qrencoder */ = {
+			isa = PBXGroup;
+			children = (
+				F8BF1ED719F0B01D005D7589 /* DataMatrix.h */,
+				F8BF1ED819F0B01D005D7589 /* DataMatrix.mm */,
+				F8BF1ED919F0B01D005D7589 /* QR_Encode.cpp */,
+				F8BF1EDA19F0B01D005D7589 /* QR_Encode.h */,
+				F8BF1EDB19F0B01D005D7589 /* QREncoder.h */,
+				F8BF1EDC19F0B01D005D7589 /* QREncoder.mm */,
+			);
+			path = qrencoder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,7 +195,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F882A6F319EFB24500DC4EFA /* QRUtil.m in Sources */,
+				F882A6F319EFB24500DC4EFA /* QRUtil.mm in Sources */,
+				F8BF1EDD19F0B01D005D7589 /* DataMatrix.mm in Sources */,
+				F8BF1EDF19F0B01D005D7589 /* QREncoder.mm in Sources */,
+				F8BF1EE619F0C1E9005D7589 /* QrCodeNavigationController.m in Sources */,
+				F8BF1EDE19F0B01D005D7589 /* QR_Encode.cpp in Sources */,
 				F882A6F619EFB57500DC4EFA /* QrSearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -192,7 +240,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -226,7 +274,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -236,6 +284,15 @@
 		F882A6A819EF8D2100DC4EFA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					armv7s,
+					armv7,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -245,6 +302,15 @@
 		F882A6A919EF8D2100DC4EFA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					armv7s,
+					armv7,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

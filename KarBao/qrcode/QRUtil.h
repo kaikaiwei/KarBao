@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "QrSearchViewController.h"
 
 @interface QRUtil : NSObject
 
@@ -22,7 +23,7 @@
  *  @abstract 在viewController模态弹出扫描界面
  *  
  */
-+(void) decodeWithViewController:(UIViewController *) viewController;
++(void) decodeWithViewController:(UIViewController *) viewController delegate:(id <QrSearchViewControllerDelegate>) delegate;
 
 
 @end

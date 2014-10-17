@@ -24,4 +24,16 @@ static TabbarManager *instance;
     });
     return instance;
 }
+
+#pragma mark UITabbarDelegate Methods
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    
+    if ([viewController isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *nav = (UINavigationController *) viewController;
+        [nav popToRootViewControllerAnimated:YES];
+    }
+    
+}
+
 @end

@@ -46,6 +46,14 @@
 		F886431F19EFCBEE007E169D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F886431E19EFCBEE007E169D /* CFNetwork.framework */; };
 		F886432119EFCE5F007E169D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F886432019EFCE5F007E169D /* SystemConfiguration.framework */; };
 		F886432319EFCE93007E169D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F886432219EFCE93007E169D /* MobileCoreServices.framework */; };
+		F8BF1ED119F0AB4C005D7589 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8BF1ED019F0AB4C005D7589 /* AVFoundation.framework */; };
+		F8BF1EE319F0BF6F005D7589 /* libqrcode.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F882A6B319EF8D2200DC4EFA /* libqrcode.a */; };
+		F8BF1EEE19F0CCA6005D7589 /* KarBao.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F8BF1EEC19F0CCA6005D7589 /* KarBao.xcdatamodeld */; };
+		F8BF1EF619F0EF10005D7589 /* qr_border@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8BF1EF419F0EF10005D7589 /* qr_border@2x.png */; };
+		F8BF1EF719F0EF10005D7589 /* qr_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8BF1EF519F0EF10005D7589 /* qr_line@2x.png */; };
+		F8BF1EFB19F0FCFC005D7589 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = F8BF1EFA19F0FCFC005D7589 /* Util.m */; };
+		F8BF1EFF19F1085F005D7589 /* ToolKit_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8BF1EFD19F1085F005D7589 /* ToolKit_iPad.storyboard */; };
+		F8BF1F0219F10B90005D7589 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F8BF1F0119F10B90005D7589 /* DataManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,7 +117,6 @@
 		F882A6BB19EFA00A00DC4EFA /* button1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button1.png; sourceTree = "<group>"; };
 		F882A6BD19EFAAD400DC4EFA /* TabbarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabbarManager.h; path = controllers/TabbarManager.h; sourceTree = "<group>"; };
 		F882A6BE19EFAAD400DC4EFA /* TabbarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TabbarManager.m; path = controllers/TabbarManager.m; sourceTree = "<group>"; };
-		F882A6C019EFABBE00DC4EFA /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		F882A6C119EFAC1800DC4EFA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F882A6C319EFAC2100DC4EFA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F882A6C519EFAC2F00DC4EFA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -133,6 +140,17 @@
 		F886431E19EFCBEE007E169D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		F886432019EFCE5F007E169D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F886432219EFCE93007E169D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		F8BF1ED019F0AB4C005D7589 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		F8BF1EEA19F0C7D3005D7589 /* QRUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRUtil.h; path = ../qrcode/QRUtil.h; sourceTree = "<group>"; };
+		F8BF1EED19F0CCA6005D7589 /* KarBao.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KarBao.xcdatamodel; sourceTree = "<group>"; };
+		F8BF1EF419F0EF10005D7589 /* qr_border@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qr_border@2x.png"; sourceTree = "<group>"; };
+		F8BF1EF519F0EF10005D7589 /* qr_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qr_line@2x.png"; sourceTree = "<group>"; };
+		F8BF1EF919F0FCFC005D7589 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Util.h; path = tools/Util.h; sourceTree = "<group>"; };
+		F8BF1EFA19F0FCFC005D7589 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Util.m; path = tools/Util.m; sourceTree = "<group>"; };
+		F8BF1EFC19F103E5005D7589 /* common.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.pch; sourceTree = "<group>"; };
+		F8BF1EFE19F1085F005D7589 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ToolKit_iPad.storyboard; sourceTree = "<group>"; };
+		F8BF1F0019F10B90005D7589 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataManager.h; path = DataManager/DataManager.h; sourceTree = "<group>"; };
+		F8BF1F0119F10B90005D7589 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataManager.m; path = DataManager/DataManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +158,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8BF1EE319F0BF6F005D7589 /* libqrcode.a in Frameworks */,
+				F8BF1ED119F0AB4C005D7589 /* AVFoundation.framework in Frameworks */,
 				F886432319EFCE93007E169D /* MobileCoreServices.framework in Frameworks */,
 				F886432119EFCE5F007E169D /* SystemConfiguration.framework in Frameworks */,
 				F886431F19EFCBEE007E169D /* CFNetwork.framework in Frameworks */,
@@ -189,6 +209,9 @@
 		F8281E3719EE59300087E42B /* KarBao */ = {
 			isa = PBXGroup;
 			children = (
+				F8BF1EF819F0FCAD005D7589 /* tools */,
+				F8BF1EEB19F0CAF9005D7589 /* DataManager */,
+				F8BF1EE719F0C7A9005D7589 /* libsheader */,
 				F882A6DA19EFADEC00DC4EFA /* libs */,
 				F882A6D919EFADE300DC4EFA /* include */,
 				F882A6F719EFB5A000DC4EFA /* categorys */,
@@ -202,6 +225,7 @@
 				F882A66D19EF614700DC4EFA /* Main_iPad.storyboard */,
 				F882A67019EF615900DC4EFA /* Main_iPhone.storyboard */,
 				F8281E4719EE59300087E42B /* LaunchScreen.xib */,
+				F8BF1EFD19F1085F005D7589 /* ToolKit_iPad.storyboard */,
 				F8281E3819EE59300087E42B /* Supporting Files */,
 			);
 			path = KarBao;
@@ -212,7 +236,7 @@
 			children = (
 				F8281E3919EE59300087E42B /* Info.plist */,
 				F8281E3A19EE59300087E42B /* main.m */,
-				F882A6C019EFABBE00DC4EFA /* PrefixHeader.pch */,
+				F8BF1EFC19F103E5005D7589 /* common.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -289,6 +313,8 @@
 		F882A67E19EF728100DC4EFA /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				F8BF1EF419F0EF10005D7589 /* qr_border@2x.png */,
+				F8BF1EF519F0EF10005D7589 /* qr_line@2x.png */,
 				F882A6BB19EFA00A00DC4EFA /* button1.png */,
 				F882A68B19EF7C1E00DC4EFA /* yan.png */,
 				F882A68719EF72BA00DC4EFA /* qrcode1.png */,
@@ -312,6 +338,7 @@
 		F882A6B619EF8D2F00DC4EFA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F8BF1ED019F0AB4C005D7589 /* AVFoundation.framework */,
 				F886432219EFCE93007E169D /* MobileCoreServices.framework */,
 				F886432019EFCE5F007E169D /* SystemConfiguration.framework */,
 				F886431E19EFCBEE007E169D /* CFNetwork.framework */,
@@ -339,9 +366,6 @@
 		F882A6D919EFADE300DC4EFA /* include */ = {
 			isa = PBXGroup;
 			children = (
-				F886431419EFC5D1007E169D /* ASINetworkQueue.h */,
-				F886431519EFC5D1007E169D /* ASIFormDataRequest.h */,
-				F886431619EFC5D1007E169D /* ASIHTTPRequest.h */,
 			);
 			name = include;
 			sourceTree = "<group>";
@@ -381,6 +405,60 @@
 				F882A72B19EFBF8D00DC4EFA /* libasihttp.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F8BF1EE719F0C7A9005D7589 /* libsheader */ = {
+			isa = PBXGroup;
+			children = (
+				F8BF1EE919F0C7C0005D7589 /* qrcode */,
+				F8BF1EE819F0C7B3005D7589 /* asihttp */,
+			);
+			name = libsheader;
+			sourceTree = "<group>";
+		};
+		F8BF1EE819F0C7B3005D7589 /* asihttp */ = {
+			isa = PBXGroup;
+			children = (
+				F886431419EFC5D1007E169D /* ASINetworkQueue.h */,
+				F886431519EFC5D1007E169D /* ASIFormDataRequest.h */,
+				F886431619EFC5D1007E169D /* ASIHTTPRequest.h */,
+			);
+			name = asihttp;
+			sourceTree = "<group>";
+		};
+		F8BF1EE919F0C7C0005D7589 /* qrcode */ = {
+			isa = PBXGroup;
+			children = (
+				F8BF1EEA19F0C7D3005D7589 /* QRUtil.h */,
+			);
+			name = qrcode;
+			sourceTree = "<group>";
+		};
+		F8BF1EEB19F0CAF9005D7589 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				F8BF1EEF19F0CCB3005D7589 /* managedobjs */,
+				F8BF1EEC19F0CCA6005D7589 /* KarBao.xcdatamodeld */,
+				F8BF1F0019F10B90005D7589 /* DataManager.h */,
+				F8BF1F0119F10B90005D7589 /* DataManager.m */,
+			);
+			name = DataManager;
+			sourceTree = "<group>";
+		};
+		F8BF1EEF19F0CCB3005D7589 /* managedobjs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = managedobjs;
+			sourceTree = "<group>";
+		};
+		F8BF1EF819F0FCAD005D7589 /* tools */ = {
+			isa = PBXGroup;
+			children = (
+				F8BF1EF919F0FCFC005D7589 /* Util.h */,
+				F8BF1EFA19F0FCFC005D7589 /* Util.m */,
+			);
+			name = tools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -432,6 +510,7 @@
 				TargetAttributes = {
 					F8281E3419EE59300087E42B = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = C3G79G7UVP;
 					};
 					F8281E4D19EE59300087E42B = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -491,6 +570,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F882A68519EF728100DC4EFA /* card2.png in Resources */,
+				F8BF1EFF19F1085F005D7589 /* ToolKit_iPad.storyboard in Resources */,
+				F8BF1EF719F0EF10005D7589 /* qr_line@2x.png in Resources */,
 				F882A67219EF615900DC4EFA /* Main_iPhone.storyboard in Resources */,
 				F882A67B19EF679B00DC4EFA /* Skin.xcassets in Resources */,
 				F882A68919EF72BA00DC4EFA /* qrcode1.png in Resources */,
@@ -499,6 +580,7 @@
 				F882A68C19EF7C1E00DC4EFA /* yan.png in Resources */,
 				F882A66F19EF614700DC4EFA /* Main_iPad.storyboard in Resources */,
 				F8281E4919EE59300087E42B /* LaunchScreen.xib in Resources */,
+				F8BF1EF619F0EF10005D7589 /* qr_border@2x.png in Resources */,
 				F8281E4619EE59300087E42B /* Images.xcassets in Resources */,
 				F882A68619EF728100DC4EFA /* zhoujielun.jpg in Resources */,
 				F882A68419EF728100DC4EFA /* card1.png in Resources */,
@@ -525,12 +607,15 @@
 				F8281E3E19EE59300087E42B /* AppDelegate.m in Sources */,
 				F882A6BF19EFAAD400DC4EFA /* TabbarManager.m in Sources */,
 				F882A6BA19EF9BF300DC4EFA /* CreateUserViewController.m in Sources */,
+				F8BF1EFB19F0FCFC005D7589 /* Util.m in Sources */,
 				F882A6FE19EFB66400DC4EFA /* NSDate+Additions.m in Sources */,
 				F882A70019EFB66400DC4EFA /* NSObject+Json.m in Sources */,
 				F8281E3B19EE59300087E42B /* main.m in Sources */,
 				F882A6EF19EFB01300DC4EFA /* RequestManager.m in Sources */,
 				F882A66919EF5F9C00DC4EFA /* GeneralNavigationController.m in Sources */,
 				F882A67519EF648300DC4EFA /* InfoViewController.m in Sources */,
+				F8BF1EEE19F0CCA6005D7589 /* KarBao.xcdatamodeld in Sources */,
+				F8BF1F0219F10B90005D7589 /* DataManager.m in Sources */,
 				F882A66419EF5F0500DC4EFA /* CardDetailViewController.m in Sources */,
 				F882A67919EF66D900DC4EFA /* CardCell.m in Sources */,
 			);
@@ -577,6 +662,14 @@
 				F882A67119EF615900DC4EFA /* Base */,
 			);
 			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		F8BF1EFD19F1085F005D7589 /* ToolKit_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F8BF1EFE19F1085F005D7589 /* Base */,
+			);
+			name = ToolKit_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -668,8 +761,11 @@
 					armv7,
 				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				GCC_PREFIX_HEADER = KarBao/PrefixHeader.pch;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = KarBao/common.pch;
 				INFOPLIST_FILE = KarBao/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -690,8 +786,11 @@
 					armv7,
 				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				GCC_PREFIX_HEADER = KarBao/PrefixHeader.pch;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = KarBao/common.pch;
 				INFOPLIST_FILE = KarBao/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -769,6 +868,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F8BF1EEC19F0CCA6005D7589 /* KarBao.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F8BF1EED19F0CCA6005D7589 /* KarBao.xcdatamodel */,
+			);
+			currentVersion = F8BF1EED19F0CCA6005D7589 /* KarBao.xcdatamodel */;
+			name = KarBao.xcdatamodeld;
+			path = DataManager/KarBao.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F8281E2D19EE59300087E42B /* Project object */;
 }

@@ -7,8 +7,9 @@
 //
 
 #import "InfoViewController.h"
+#import "QRUtil.h"
 
-@interface InfoViewController ()
+@interface InfoViewController () <QrSearchViewControllerDelegate>
 
 @end
 
@@ -33,20 +34,29 @@
 - (IBAction) startVerify:(id)sender
 {
     NSLog(@"%s", __FUNCTION__);
+    
+    [QRUtil decodeWithViewController:self delegate:self];
+    
 }
 
-
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - QrSearchViewControllerDelegate Methods
+/**
+ *  @abstract 二维码扫描结束
+ */
+- (void) qrCodeVideControllerCanceledSearch:(QrSearchViewController *) qrCodeViewController
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"扫描已取消" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+    [alert show];
 }
-*/
+
+/**
+ *  @abstract 二维码扫描结束
+ */
+- (void) qrCodeVideController:(QrSearchViewController *) qrCodeViewController didFinishedWithString:(NSString *) str
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:str delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+    [alert show];
+}
+
 
 @end
