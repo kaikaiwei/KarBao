@@ -15,6 +15,8 @@
 
 @interface DataManager : NSObject
 
+@property (nonatomic, retain) NSManagedObjectContext *objectContext;
+
 
 /**
  *  @abstract 单实例模式

@@ -14,7 +14,7 @@
     #import <CoreData/CoreData.h>
 #endif
 
-
+#define LoginAccount @"KarBao_LoginAccount"
 
 
 

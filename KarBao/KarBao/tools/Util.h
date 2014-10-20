@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Account.h"
 
 @interface Util : NSObject
 
@@ -28,7 +29,21 @@
  */
 + (NSString *) getDeviceName;
 
+/**
+ *  @abstract 创建一个用户出来
+ *  如果没有用户才会进行创建，否则不进行创建
+ */
++ (void) initAccount;
 
+/**
+ *  @abstract 得到登陆用户的信息
+ *
+ */
++ (Account *) loginAccount;
 
+/**
+ *  @abstract 得到登陆用户的ID
+ */
++ (NSString*)currentLoginUserId;
 
 @end
