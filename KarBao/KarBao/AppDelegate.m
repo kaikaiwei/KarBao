@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "TabbarManager.h"
 #import "GeneralNavigationController.h"
+#import "Util.h"
 
 @interface AppDelegate ()
 
@@ -20,19 +21,20 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [self setTheDefaultAppear];
+//    [self setTheDefaultAppear];
     
-    UINavigationController *nav = (UINavigationController *) self.window.rootViewController;
-    self.tabController = (UITabBarController *) nav.topViewController;
-//    self.tabController = (UITabBarController *) self.window.rootViewController;
+//    UINavigationController *nav = (UINavigationController *) self.window.rootViewController;
+//    self.tabController = (UITabBarController *) nav.topViewController;
+    self.tabController = (UITabBarController *) self.window.rootViewController;
     UIViewController *createController = [[UIStoryboard storyboardWithName:@"ToolKit_iPad" bundle:nil] instantiateViewControllerWithIdentifier:@"CreateUserController"];
     self.createNavController = [[UINavigationController alloc] initWithRootViewController:createController];
     self.tabController.delegate = [TabbarManager defaultInstance];
-    [self.tabController presentViewController:self.createNavController animated:YES completion:^{
-        
-    }];
+//    [self.tabController presentViewController:self.createNavController animated:YES completion:^{
+//        
+//    }];
     
-    
+    [Util initAccount];
+    //处理生成用户
     
     
     return YES;

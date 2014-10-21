@@ -17,7 +17,7 @@ static DataManager *instance;
 @interface DataManager ()
 
 // 通用的对象存储管理
-@property (nonatomic, retain) NSManagedObjectContext *objectContext;
+//@property (nonatomic, retain) NSManagedObjectContext *objectContext;
 @property (nonatomic, retain) NSManagedObjectModel *objectModel;
 @property (nonatomic, retain) NSPersistentStoreCoordinator *storeCoordinator;
 
@@ -50,7 +50,7 @@ static DataManager *instance;
                                                      name:UIApplicationDidEnterBackgroundNotification
                                                    object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(applicationWillEnterbackground:)
+                                                 selector:@selector(applicationWillTerminate:)
                                                      name:UIApplicationWillTerminateNotification
                                                    object:nil];
     }
@@ -119,9 +119,16 @@ static DataManager *instance;
 
 
 /**
- *  @abstract 在进入后台或者程序退出的时候保存数据
+ *  @abstract 在进入后台的时候保存数据
  */
 - (void)applicationWillEnterbackground:(NSNotification *)notification
+{
+    [self saveContext];
+}
+/**
+ *  @abstract 在程序退出的时候保存数据
+ */
+- (void)applicationWillTerminate:(NSNotification *)notification
 {
     [self saveContext];
 }

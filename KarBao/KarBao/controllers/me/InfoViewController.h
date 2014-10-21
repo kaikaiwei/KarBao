@@ -11,8 +11,23 @@
 @interface InfoViewController : UIViewController
 
 /**
+ *  二维码的
+ */
+@property (nonatomic, retain) IBOutlet UIImageView *qrcodeView;
+
+/**
  *  @abstract 开始验证
  */
 - (IBAction) startVerify:(id)sender;
+
+/**
+ *  更新卡片内容
+ */
+- (IBAction) resetCard:(id)sender;
+
+/**
+ *  刷卡
+ */
+- (IBAction) flushCard:(id)sender;
 
 @end

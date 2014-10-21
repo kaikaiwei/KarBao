@@ -18,6 +18,15 @@
     return newDate;
 }
 
+/**
+ *  @abstract 从str中转换成为date对象，格式为：yyyy-MM-dd HH:mm:ss
+ */
++ (NSDate *) covertDateFromString:(NSString *) str
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    return [dateFormatter dateFromString:str];
+}
 /*!
  生成yyyy/m/d格式的字符串
  @return 生成的字符串
