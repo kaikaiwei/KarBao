@@ -77,7 +77,8 @@
 - (IBAction) flushCard:(id)sender
 {
     isVerify = NO;
-    [QRUtil decodeWithViewController:self delegate:self isFront:YES];
+//    [QRUtil decodeWithViewController:self delegate:self isFront:YES];
+    [QRUtil decodeWithViewController:self delegate:self];
 }
 
 
