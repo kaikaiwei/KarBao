@@ -13,6 +13,8 @@
 #define QRLineImageName @"qr_line"
 #define QRMessageText @"请将二维码/条形码放入框内,即可自动扫描"
 
+
+
 @class QrSearchViewController;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -47,7 +49,7 @@
 
 @property (nonatomic, retain) id<QrSearchViewControllerDelegate> delegate;
 
-
+@property (nonatomic, assign) AVCaptureDevicePosition cameraType;
 
 
 

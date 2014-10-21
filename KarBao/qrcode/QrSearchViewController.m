@@ -49,6 +49,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        
+        self.cameraType = AVCaptureDevicePositionBack; //默认打开后置摄像头进行拍摄
     }
     return self;
 }
@@ -72,6 +74,7 @@
     self.timer = [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(lineAnimanate) userInfo:nil repeats:YES];
     
     
+    
     [self addSubViews];
     
 }
@@ -79,17 +82,23 @@
 - (void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    self.device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    self.device = [self cameraWithPosition:self.cameraType];
+    
+    NSAssert(self.device!=nil, @"QRSearchViewController:Device shouldn't be nil.");
     
     self.input = [AVCaptureDeviceInput deviceInputWithDevice:self.device error:nil];
+    
+    NSAssert(self.input != nil, @"QRSearchViewController:Input shouldn't be nil.");
+    
+    
     
     self.output = [[AVCaptureMetadataOutput alloc] init];
     [self.output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
     self.output.rectOfInterest = CGRectMake(0.1, 0.1, 0.8, 0.8);//设置取值的范围，就是扫描的范围。
     
     self.session = [[AVCaptureSession alloc] init];
-    //    [self.session setSessionPreset:AVCaptureSessionPresetHigh];
-    [self.session setSessionPreset:AVCaptureSessionPreset1920x1080];
+    [self.session setSessionPreset:AVCaptureSessionPresetHigh];
+//    [self.session setSessionPreset:AVCaptureSessionPreset1920x1080];
     
     if ([self.session canAddInput:self.input]) {
         [self.session addInput:self.input];
@@ -124,6 +133,20 @@
     [super viewWillDisappear:animated];
     [self.session stopRunning];
     [self.timer invalidate];
+}
+
+
+
+/**
+ *  得到指定的Device
+ */
+- (AVCaptureDevice *)cameraWithPosition:(AVCaptureDevicePosition)position
+{
+    NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
+    for ( AVCaptureDevice *device in devices )
+        if ( device.position == position )
+            return device;
+    return nil;
 }
 
 

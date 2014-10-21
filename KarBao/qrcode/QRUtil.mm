@@ -50,7 +50,24 @@
     [viewController presentViewController:nav animated:YES completion:^{
         
     }];
+}
+/**
+ *  @abstract 在viewController模态弹出扫描界面
+ *
+ */
++(void) decodeWithViewController:(UIViewController *) viewController delegate:(id <QrSearchViewControllerDelegate>) delegate isFront:(BOOL) isFront
+{
+    QrSearchViewController *controller = [[QrSearchViewController alloc] init];
+    controller.delegate = delegate;
+    if (isFront) {
+        controller.cameraType = AVCaptureDevicePositionFront;
+    }
     
+    UINavigationController *nav = [[QrCodeNavigationController alloc] initWithRootViewController:controller];
+    
+    [viewController presentViewController:nav animated:YES completion:^{
+        
+    }];
 }
 
 

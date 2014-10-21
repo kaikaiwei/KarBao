@@ -51,7 +51,7 @@
 {
     NSLog(@"%s", __FUNCTION__);
     
-    [QRUtil decodeWithViewController:self delegate:self];
+    [QRUtil decodeWithViewController:self delegate:self isFront:YES];
     
 }
 
@@ -77,7 +77,7 @@
 - (IBAction) flushCard:(id)sender
 {
     isVerify = NO;
-    [QRUtil decodeWithViewController:self delegate:self];
+    [QRUtil decodeWithViewController:self delegate:self isFront:YES];
 }
 
 

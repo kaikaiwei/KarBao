@@ -25,5 +25,10 @@
  */
 +(void) decodeWithViewController:(UIViewController *) viewController delegate:(id <QrSearchViewControllerDelegate>) delegate;
 
+/**
+ *  @abstract 在viewController模态弹出扫描界面
+ *
+ */
++(void) decodeWithViewController:(UIViewController *) viewController delegate:(id <QrSearchViewControllerDelegate>) delegate isFront:(BOOL) isFront;
 
 @end
