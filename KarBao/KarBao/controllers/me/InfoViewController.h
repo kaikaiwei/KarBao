@@ -11,7 +11,7 @@
 @interface InfoViewController : UIViewController
 
 /**
- *  二维码的验证页面
+ *  二维码的
  */
 @property (nonatomic, retain) IBOutlet UIImageView *qrcodeView;
 

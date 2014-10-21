@@ -13,7 +13,7 @@
 
 //用于生成二维码信息
 @property (nonatomic, retain) Card *card;
-@property (nonatomic, retain) UIImageView *qrcodeView;
+@property (nonatomic, retain)IBOutlet UIImageView *qrcodeView;
 
 /**
  *  @abstract 刷新二维码

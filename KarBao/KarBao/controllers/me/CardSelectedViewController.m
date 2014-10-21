@@ -17,7 +17,7 @@
 - (void) viewDidLoad
 {
     [super viewDidLoad];
-    UIImage *img = [QRUtil generateUsingString:[NSString stringWithFormat:@"%@_%@", card.cardid, [[NSDate date] fullDateString]]];
+    UIImage *img = [QRUtil generateUsingString:[NSString stringWithFormat:@"%@_%@", self.card.cardid, [[NSDate date] fullDateString]]];
     self.qrcodeView.image = img;
 }
 
@@ -42,7 +42,7 @@
  */
 - (IBAction) resetQrCodeImage:(id)sender
 {
-    UIImage *img = [QRUtil generateUsingString:[NSString stringWithFormat:@"%@_%@", card.cardid, [[NSDate date] fullDateString]]];
+    UIImage *img = [QRUtil generateUsingString:[NSString stringWithFormat:@"%@_%@", self.card.cardid, [[NSDate date] fullDateString]]];
     self.qrcodeView.image = img;
 }
 

@@ -19,10 +19,17 @@
     Card *card = [self getCardById:[dict objectForKey:@"cardid"]];
     if (card == nil) {
         card = (Card *) [NSEntityDescription insertNewObjectForEntityForName:EntityCard inManagedObjectContext:self.objectContext];
+//        NSDictionary *dict = @{@"cardid" : [Util generateUUID],
+//                               @"cardname" : @"KarBao Test",
+//                               @"carduser" : [Util currentLoginUserId],
+//                               @"createuser" : [arr objectAtIndex:0],
+//                               @"createtime" : date};
+        card.cardid = [dict objectForKey:@"cardid"];
+        card.cardname = [dict objectForKey:@"cardname"];
+        card.carduser = [dict objectForKey:@"carduser"];
+        card.createuser = [dict objectForKey:@"createuser"];
+        card.createtime = [dict objectForKey:@"createtime"];
         
-        card.cardid = @"";
-        card.cardname = @"";
-        card.carduser = @"";
     }
     
     return card;

@@ -234,7 +234,7 @@
         <!--小店卡片-->
         <scene sceneID="1XD-Si-Wcv">
             <objects>
-                <viewController storyboardIdentifier="CardSelectedList" title="小店卡片" id="0RH-Ks-wGZ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CardSelectedList" title="小店卡片" id="0RH-Ks-wGZ" customClass="CardSelectedListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9PP-ek-sch"/>
                         <viewControllerLayoutGuide type="bottom" id="2g1-OO-rNT"/>
@@ -285,7 +285,7 @@
         <!--快来扫我啊-->
         <scene sceneID="pGn-Iw-jcJ">
             <objects>
-                <viewController storyboardIdentifier="CardSelected" title="快来扫我啊" id="bP3-RQ-abX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CardSelected" title="快来扫我啊" id="bP3-RQ-abX" customClass="CardSelectedViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ee3-e8-pve"/>
                         <viewControllerLayoutGuide type="bottom" id="ZjV-dD-0YJ"/>
@@ -303,14 +303,27 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JWt-Rn-qY4">
+                                <rect key="frame" x="167" y="688" width="404" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="小样，我换个马甲再来揍你">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetQrCodeImage:" destination="bP3-RQ-abX" eventType="touchUpInside" id="pAz-te-Yfz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="qrcodeView" destination="F6p-Cd-Wtc" id="fqR-GX-Gla"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cTd-4M-Ws7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="866" y="1548"/>
+            <point key="canvasLocation" x="866" y="1543"/>
         </scene>
         <!--我来-->
         <scene sceneID="z2g-WB-LPq">

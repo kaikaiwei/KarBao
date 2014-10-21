@@ -76,6 +76,7 @@
  */
 - (IBAction) flushCard:(id)sender
 {
+    isVerify = NO;
     [QRUtil decodeWithViewController:self delegate:self];
 }
 
@@ -88,8 +89,6 @@
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"扫描已取消" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
     [alert show];
-    
-    
 }
 
 /**
@@ -133,21 +132,33 @@
         //刷卡模式
         //需要进入另外一个页面，然后列出所有可用的卡片，点击卡片显示卡片的二维码，然后进行交易。（多个卡片）
         //或者直接弹出界面，直接进行交易。（单个卡片）
-        NSArray *cards = [[DataManager defaultInstance] getchObjsByCreateUser:[arr objectAtIndex:0]];
-        if (cards.count == 0) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您没有此处的会员卡，要不要戳一下？" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"办理", nil];
-            [alert show];
-        }else if (cards.count ==1){
-            CardSelectedViewController *viewController = (CardSelectedViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"CardSelected"];
-            [self.navigationController pushViewController:viewController animated:YES];
-            viewController.card = [cards objectAtIndex:0];
-        }else if (cards.count > 1) {
-            CardSelectedListViewController *listViewController = (CardSelectedListViewController *) [self.storyboard instantiateViewControllerWithIdentifier:@"CardSelectedList"];
-            [self.navigationController pushViewController:listViewController animated:YES];
-            listViewController.storeinfo = [arr objectAtIndex:0];
-        }
+//        NSArray *cards = [[DataManager defaultInstance] getchObjsByCreateUser:[arr objectAtIndex:0]];
+//        if (cards.count == 0) {
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您没有此处的会员卡，要不要戳一下？" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"办理", nil];
+//            [alert show];
+//        }else if (cards.count ==1){
+//            CardSelectedViewController *viewController = (CardSelectedViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"CardSelected"];
+//            [self.navigationController pushViewController:viewController animated:YES];
+//            viewController.card = [cards objectAtIndex:0];
+//        }else if (cards.count > 1) {
+//            CardSelectedListViewController *listViewController = (CardSelectedListViewController *) [self.storyboard instantiateViewControllerWithIdentifier:@"CardSelectedList"];
+//            [self.navigationController pushViewController:listViewController animated:YES];
+//            listViewController.storeinfo = [arr objectAtIndex:0];
+//        }
+        //根据店家生成一个card
+        DataManager *manager = [DataManager defaultInstance];
         
+        NSDictionary *dict = @{@"cardid" : [Util generateUUID],
+                               @"cardname" : @"KarBao Test",
+                               @"carduser" : [Util currentLoginUserId],
+                               @"createuser" : [arr objectAtIndex:0],
+                               @"createtime" : date};
         
+        Card *aCard = [manager syncCard:dict];
+        CardSelectedViewController *viewController = (CardSelectedViewController *) [self.storyboard instantiateViewControllerWithIdentifier:@"CardSelected"];
+        viewController.card = aCard;
+        [self.navigationController pushViewController:viewController animated:YES];
+        isVerify = YES;
         
     }
 }
