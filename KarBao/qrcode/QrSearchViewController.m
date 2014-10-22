@@ -40,11 +40,14 @@
 @property (nonatomic, retain) UILabel *messageLabel;
 
 @property (nonatomic, retain) UIImageView *qrcodeView;
+@property (nonatomic, retain) UIButton *resetQrCodeButton;
 
 
 @end
 
 @implementation QrSearchViewController
+
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -52,6 +55,18 @@
     if (self) {
         
         self.cameraType = AVCaptureDevicePositionBack; //默认打开后置摄像头进行拍摄
+        self.isStore = YES;
+        self.infoDict = nil;
+    }
+    return self;
+}
+
+- (id) init
+{
+    if (self = [super init]) {
+        self.cameraType = AVCaptureDevicePositionBack; //默认打开后置摄像头进行拍摄
+        self.isStore = YES;
+        self.infoDict = nil;
     }
     return self;
 }
@@ -88,8 +103,6 @@
     self.input = [AVCaptureDeviceInput deviceInputWithDevice:self.device error:nil];
     
     NSAssert(self.input != nil, @"QRSearchViewController:Input shouldn't be nil.");
-    
-    
     
     self.output = [[AVCaptureMetadataOutput alloc] init];
     [self.output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
@@ -154,6 +167,8 @@
     
     
     
+    
+    
     //后置摄像头
     if (self.cameraType == AVCaptureDevicePositionBack)
     {
@@ -203,113 +218,172 @@
     {
         //前置摄像头
         
-        
-        
-        //用户模式下，二维码在上方，扫描框在下方
-        self.northView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 768, 292 + 200)];
-        self.northView.backgroundColor = [UIColor lightGrayColor];
-        self.northView.alpha = 0.4;
-        [self.view addSubview:self.northView];
-        
-        self.sourthView = [[UIView alloc] initWithFrame:CGRectMake(0, 732 + 200, 768, 732 - 200)];
-        self.sourthView.backgroundColor = [UIColor lightGrayColor];
-        self.sourthView.alpha = 0.4;
-        [self.view addSubview:self.sourthView];
-        
-        self.eastView = [[UIView alloc] initWithFrame:CGRectMake(0, 292 + 200, 164, 440)];
-        self.eastView.backgroundColor = [UIColor lightGrayColor];
-        self.eastView.alpha = 0.4;
-        [self.view addSubview:self.eastView];
-        
-        self.westView = [[UIView alloc] initWithFrame:CGRectMake(604, 292 + 200, 164, 440)];
-        self.westView.backgroundColor = [UIColor lightGrayColor];
-        self.westView.alpha = 0.4;
-        [self.view addSubview:self.westView];
-        
-        UIImage *borderImage = [UIImage imageNamed:QRBorderImageName];
-        UIImage *lineImage = [UIImage imageNamed:QRLineImageName];
-        self.centerView = [[UIImageView alloc] initWithFrame:CGRectMake(164, 292 + 200, 440, 440)];
-        self.centerView.contentMode = UIViewContentModeScaleAspectFit;
-        self.centerView.image = borderImage;
-        //    self.centerView.alpha = 0;
-        [self.view addSubview:self.centerView];
-        
-        self.line = [[UIImageView alloc] initWithFrame:CGRectMake(164, 292 + 200, 440, 2)];
-        self.line.contentMode = UIViewContentModeScaleAspectFill;
-        self.line.image = lineImage;
-        [self.view addSubview:self.line];
-        
-        self.messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 440, 22)];
-        self.messageLabel.text = QRMessageText;
-        self.messageLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        self.messageLabel.numberOfLines = 1;
-        self.messageLabel.font = [UIFont systemFontOfSize:17.0];
-        self.messageLabel.textAlignment = NSTextAlignmentCenter;
-        self.messageLabel.center = CGPointMake(384, 750 + 200);
-        [self.view addSubview:self.messageLabel];
-        
-        self.qrcodeView = [[UIImageView alloc] initWithFrame:CGRectMake(184, 70, 400, 400)];
-        self.qrcodeView.contentMode = UIViewContentModeScaleAspectFit;
-        self.qrcodeView.image = [QRUtil generateUsingString:@"http://www.baidu.com"];
-        self.qrcodeView.alpha = 0.4;
-        [self.view addSubview:self.qrcodeView];
-        
-        
-        //店家模式下
-//        self.northView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 768, 292 - 200)];
-//        self.northView.backgroundColor = [UIColor lightGrayColor];
-//        self.northView.alpha = 0.4;
-//        [self.view addSubview:self.northView];
-//        
-//        self.sourthView = [[UIView alloc] initWithFrame:CGRectMake(0, 732 - 200, 768, 732 + 200)];
-//        self.sourthView.backgroundColor = [UIColor lightGrayColor];
-//        self.sourthView.alpha = 0.4;
-//        [self.view addSubview:self.sourthView];
-//        
-//        self.eastView = [[UIView alloc] initWithFrame:CGRectMake(0, 292 - 200, 164, 440)];
-//        self.eastView.backgroundColor = [UIColor lightGrayColor];
-//        self.eastView.alpha = 0.4;
-//        [self.view addSubview:self.eastView];
-//        
-//        self.westView = [[UIView alloc] initWithFrame:CGRectMake(604, 292 - 200, 164, 440)];
-//        self.westView.backgroundColor = [UIColor lightGrayColor];
-//        self.westView.alpha = 0.4;
-//        [self.view addSubview:self.westView];
-//        
-//        UIImage *borderImage = [UIImage imageNamed:QRBorderImageName];
-//        UIImage *lineImage = [UIImage imageNamed:QRLineImageName];
-//        self.centerView = [[UIImageView alloc] initWithFrame:CGRectMake(164, 292 - 200, 440, 440)];
-//        self.centerView.contentMode = UIViewContentModeScaleAspectFit;
-//        self.centerView.image = borderImage;
-//        //    self.centerView.alpha = 0;
-//        [self.view addSubview:self.centerView];
-//        
-//        self.line = [[UIImageView alloc] initWithFrame:CGRectMake(164, 292 - 200, 440, 2)];
-//        self.line.contentMode = UIViewContentModeScaleAspectFill;
-//        self.line.image = lineImage;
-//        [self.view addSubview:self.line];
-//        
-//        self.messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 440, 22)];
-//        self.messageLabel.text = QRMessageText;
-//        self.messageLabel.lineBreakMode = NSLineBreakByWordWrapping;
-//        self.messageLabel.numberOfLines = 1;
-//        self.messageLabel.font = [UIFont systemFontOfSize:17.0];
-//        self.messageLabel.textAlignment = NSTextAlignmentCenter;
-//        self.messageLabel.center = CGPointMake(384, 750 - 200);
-//        [self.view addSubview:self.messageLabel];
-//        
-//        self.qrcodeView = [[UIImageView alloc] initWithFrame:CGRectMake(184, 532+30, 400, 400)];
-//        self.qrcodeView.contentMode = UIViewContentModeScaleAspectFit;
-//        self.qrcodeView.image = [QRUtil generateUsingString:@"http://www.baidu.com"];
-//        self.qrcodeView.alpha = 0.4;
-//        [self.view addSubview:self.qrcodeView];
-        
-        
+        if (self.isStore) {
+            //商店模式下
+            self.northView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 768, 292 - 200)];
+            self.northView.backgroundColor = [UIColor lightGrayColor];
+            self.northView.alpha = 0.4;
+            [self.view addSubview:self.northView];
+            
+            self.sourthView = [[UIView alloc] initWithFrame:CGRectMake(0, 732 - 200, 768, 732 + 200)];
+            self.sourthView.backgroundColor = [UIColor lightGrayColor];
+            self.sourthView.alpha = 0.4;
+            [self.view addSubview:self.sourthView];
+            
+            self.eastView = [[UIView alloc] initWithFrame:CGRectMake(0, 292 - 200, 164, 440)];
+            self.eastView.backgroundColor = [UIColor lightGrayColor];
+            self.eastView.alpha = 0.4;
+            [self.view addSubview:self.eastView];
+            
+            self.westView = [[UIView alloc] initWithFrame:CGRectMake(604, 292 - 200, 164, 440)];
+            self.westView.backgroundColor = [UIColor lightGrayColor];
+            self.westView.alpha = 0.4;
+            [self.view addSubview:self.westView];
+            
+            UIImage *borderImage = [UIImage imageNamed:QRBorderImageName];
+            UIImage *lineImage = [UIImage imageNamed:QRLineImageName];
+            self.centerView = [[UIImageView alloc] initWithFrame:CGRectMake(164, 292 - 200, 440, 440)];
+            self.centerView.contentMode = UIViewContentModeScaleAspectFit;
+            self.centerView.image = borderImage;
+            //    self.centerView.alpha = 0;
+            [self.view addSubview:self.centerView];
+            
+            self.line = [[UIImageView alloc] initWithFrame:CGRectMake(164, 292 - 200, 440, 2)];
+            self.line.contentMode = UIViewContentModeScaleAspectFill;
+            self.line.image = lineImage;
+            [self.view addSubview:self.line];
+            
+            self.messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 440, 22)];
+            self.messageLabel.text = QRMessageText;
+            self.messageLabel.lineBreakMode = NSLineBreakByWordWrapping;
+            self.messageLabel.numberOfLines = 1;
+            self.messageLabel.font = [UIFont systemFontOfSize:17.0];
+            self.messageLabel.textAlignment = NSTextAlignmentCenter;
+            self.messageLabel.center = CGPointMake(384, 750 - 200);
+            [self.view addSubview:self.messageLabel];
+            
+            self.qrcodeView = [[UIImageView alloc] initWithFrame:CGRectMake(184, 532+30, 400, 400)];
+            self.qrcodeView.contentMode = UIViewContentModeScaleAspectFit;
+            
+            NSAssert(self.infoDict!= nil, @"QRSearchViewController:Info Dictionary shouldn't be nil.");
+            NSString *infoStr = [self.infoDict objectForKey:QRDicInfoKey];
+            NSAssert(infoStr, @"QRSearchViewController:Info Dictionary should contain a NSString value with QRDicInfoKey key be nil.");
+            self.qrcodeView.image = [QRUtil generateUsingString:infoStr];
+            self.qrcodeView.alpha = 0.4;
+            [self.view addSubview:self.qrcodeView];
+            
+            
+            
+        }else {
+            //用户模式下，二维码在上方，扫描框在下方
+            self.northView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 768, 292)];
+            self.northView.backgroundColor = [UIColor lightGrayColor];
+            self.northView.alpha = 0.4;
+            [self.view addSubview:self.northView];
+            
+            self.sourthView = [[UIView alloc] initWithFrame:CGRectMake(0, 732, 768, 732)];
+            self.sourthView.backgroundColor = [UIColor lightGrayColor];
+            self.sourthView.alpha = 0.4;
+            [self.view addSubview:self.sourthView];
+            
+            self.eastView = [[UIView alloc] initWithFrame:CGRectMake(0, 292 , 164, 440)];
+            self.eastView.backgroundColor = [UIColor lightGrayColor];
+            self.eastView.alpha = 0.4;
+            [self.view addSubview:self.eastView];
+            
+            self.westView = [[UIView alloc] initWithFrame:CGRectMake(604, 292, 164, 440)];
+            self.westView.backgroundColor = [UIColor lightGrayColor];
+            self.westView.alpha = 0.4;
+            [self.view addSubview:self.westView];
+            
+            UIImage *borderImage = [UIImage imageNamed:QRBorderImageName];
+            UIImage *lineImage = [UIImage imageNamed:QRLineImageName];
+            self.centerView = [[UIImageView alloc] initWithFrame:CGRectMake(164, 292, 440, 440)];
+            self.centerView.contentMode = UIViewContentModeScaleAspectFit;
+            self.centerView.image = borderImage;
+            //    self.centerView.alpha = 0;
+            [self.view addSubview:self.centerView];
+            
+            self.line = [[UIImageView alloc] initWithFrame:CGRectMake(164, 292, 440, 2)];
+            self.line.contentMode = UIViewContentModeScaleAspectFill;
+            self.line.image = lineImage;
+            [self.view addSubview:self.line];
+            
+            self.messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 440, 22)];
+            self.messageLabel.text = QRMessageText;
+            self.messageLabel.lineBreakMode = NSLineBreakByWordWrapping;
+            self.messageLabel.numberOfLines = 1;
+            self.messageLabel.font = [UIFont systemFontOfSize:17.0];
+            self.messageLabel.textAlignment = NSTextAlignmentCenter;
+            self.messageLabel.center = CGPointMake(384, 750);
+            [self.view addSubview:self.messageLabel];
+            
+            
+//            self.northView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 768, 292 + 200)];
+//            self.northView.backgroundColor = [UIColor lightGrayColor];
+//            self.northView.alpha = 0.4;
+//            [self.view addSubview:self.northView];
+//            
+//            self.sourthView = [[UIView alloc] initWithFrame:CGRectMake(0, 732 + 200, 768, 732 - 200)];
+//            self.sourthView.backgroundColor = [UIColor lightGrayColor];
+//            self.sourthView.alpha = 0.4;
+//            [self.view addSubview:self.sourthView];
+//            
+//            self.eastView = [[UIView alloc] initWithFrame:CGRectMake(0, 292 + 200, 164, 440)];
+//            self.eastView.backgroundColor = [UIColor lightGrayColor];
+//            self.eastView.alpha = 0.4;
+//            [self.view addSubview:self.eastView];
+//            
+//            self.westView = [[UIView alloc] initWithFrame:CGRectMake(604, 292 + 200, 164, 440)];
+//            self.westView.backgroundColor = [UIColor lightGrayColor];
+//            self.westView.alpha = 0.4;
+//            [self.view addSubview:self.westView];
+//            
+//            UIImage *borderImage = [UIImage imageNamed:QRBorderImageName];
+//            UIImage *lineImage = [UIImage imageNamed:QRLineImageName];
+//            self.centerView = [[UIImageView alloc] initWithFrame:CGRectMake(164, 292 + 200, 440, 440)];
+//            self.centerView.contentMode = UIViewContentModeScaleAspectFit;
+//            self.centerView.image = borderImage;
+//            //    self.centerView.alpha = 0;
+//            [self.view addSubview:self.centerView];
+//            
+//            self.line = [[UIImageView alloc] initWithFrame:CGRectMake(164, 292 + 200, 440, 2)];
+//            self.line.contentMode = UIViewContentModeScaleAspectFill;
+//            self.line.image = lineImage;
+//            [self.view addSubview:self.line];
+//            
+//            self.messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 440, 22)];
+//            self.messageLabel.text = QRMessageText;
+//            self.messageLabel.lineBreakMode = NSLineBreakByWordWrapping;
+//            self.messageLabel.numberOfLines = 1;
+//            self.messageLabel.font = [UIFont systemFontOfSize:17.0];
+//            self.messageLabel.textAlignment = NSTextAlignmentCenter;
+//            self.messageLabel.center = CGPointMake(384, 750 + 200);
+//            [self.view addSubview:self.messageLabel];
+            
+//            self.qrcodeView = [[UIImageView alloc] initWithFrame:CGRectMake(184, 70, 400, 400)];
+//            self.qrcodeView.contentMode = UIViewContentModeScaleAspectFit;
+//            self.qrcodeView.image = [QRUtil generateUsingString:infoStr];
+//            self.qrcodeView.alpha = 0.4;
+//            [self.view addSubview:self.qrcodeView];
+            
+        }
         
     }
+}
+
+/**
+ *  @abstract 重新生成二维码
+ *
+ */
+- (void) resetQrCodeImage
+{
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *sdate = [dateFormat stringFromDate:[NSDate date]];
     
-    
-    
+    NSString *str = [NSString stringWithFormat:@"%@_%@", [self.infoDict objectForKey:QRDicInfoKey], sdate];
+    self.qrcodeView.image = [QRUtil generateUsingString:str];    
 }
 
 
@@ -346,12 +420,19 @@
         AVMetadataMachineReadableCodeObject *metaDataObject = [metadataObjects objectAtIndex:0];
         strValue = metaDataObject.stringValue;
     }
-    
-    [self dismissViewControllerAnimated:YES completion:^{
-        if ([self.delegate respondsToSelector:@selector(qrCodeVideController:didFinishedWithString:)]) {
-            [self.delegate qrCodeVideController:self didFinishedWithString:strValue];
-        }
-    }];
+    if (self.isStore) {
+        [self dismissViewControllerAnimated:YES completion:^{
+            if ([self.delegate respondsToSelector:@selector(qrCodeViewController:didFinishedStoreWithString:)]) {
+                [self.delegate qrCodeViewController:self didFinishedStoreWithString:strValue];
+            }
+        }];
+    }else {
+        [self dismissViewControllerAnimated:YES completion:^{
+            if ([self.delegate respondsToSelector:@selector(qrCodeViewController:didFinishedCustomWithString:)]) {
+                [self.delegate qrCodeViewController:self didFinishedCustomWithString:strValue];
+            }
+        }];
+    }
 }
 
 #pragma mark - Property Methods

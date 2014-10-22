@@ -62,6 +62,33 @@
     if (isFront) {
         controller.cameraType = AVCaptureDevicePositionFront;
     }
+    controller.isStore = NO;
+    
+    UINavigationController *nav = [[QrCodeNavigationController alloc] initWithRootViewController:controller];
+    
+    [viewController presentViewController:nav animated:YES completion:^{
+        
+    }];
+}
+
+/**
+ *  @abstract 在viewController模态弹出扫描界面
+ *  @param viewController   以那个viewController作为模态弹出
+ *  @param delegate QrSearchViewController的delegate。
+ *  @param isFront true 调用前置摄像头
+ *  @param isStore true 表明是商家模式； false 表明这是一个客户
+ *  @param dict 生成二维码需要用到的信息字典
+ */
++(void) decodeWithViewController:(UIViewController *) viewController delegate:(id <QrSearchViewControllerDelegate>) delegate isFront:(BOOL) isFront isStore:(BOOL) isStore dictionary:(NSDictionary *) dict
+{
+    QrSearchViewController *controller = [[QrSearchViewController alloc] init];
+    controller.delegate = delegate;
+    if (isFront) {
+        controller.cameraType = AVCaptureDevicePositionFront;
+    }
+    
+    controller.isStore = isStore;
+    controller.infoDict = dict;
     
     UINavigationController *nav = [[QrCodeNavigationController alloc] initWithRootViewController:controller];
     

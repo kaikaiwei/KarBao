@@ -13,6 +13,8 @@
 #define QRLineImageName @"qr_line"
 #define QRMessageText @"请将二维码/条形码放入框内,即可自动扫描"
 
+//二维码生成信息的key
+#define QRDicInfoKey @"QRDicInfoKey"
 
 
 @class QrSearchViewController;
@@ -23,14 +25,18 @@
 @optional
 
 /**
- *  @abstract 二维码扫描结束
+ *  @abstract 二维码扫描被取消
  */
 - (void) qrCodeVideControllerCanceledSearch:(QrSearchViewController *) qrCodeViewController;
 
 /**
- *  @abstract 二维码扫描结束
+ *  @abstract 二维码扫描结束，商家模式下
  */
-- (void) qrCodeVideController:(QrSearchViewController *) qrCodeViewController didFinishedWithString:(NSString *) str;
+- (void) qrCodeViewController:(QrSearchViewController *) qrCodeViewController didFinishedStoreWithString:(NSString *) str;
+/**
+ *  @abstract 二维码扫描结束，用户模式下
+ */
+- (void) qrCodeViewController:(QrSearchViewController *) qrCodeViewController didFinishedCustomWithString:(NSString *) str;
 
 @end
 
@@ -50,6 +56,9 @@
 @property (nonatomic, retain) id<QrSearchViewControllerDelegate> delegate;
 
 @property (nonatomic, assign) AVCaptureDevicePosition cameraType;
+
+@property (nonatomic, assign) BOOL isStore;
+@property (nonatomic, retain) NSDictionary *infoDict;
 
 
 
