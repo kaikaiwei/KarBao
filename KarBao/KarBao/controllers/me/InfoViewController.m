@@ -18,7 +18,6 @@
 
 @interface InfoViewController () <QrSearchViewControllerDelegate>
 {
-    BOOL isVerify;
 }
 @end
 
@@ -26,8 +25,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    isVerify = YES;//默认是验证模式
     
     //初始化商户信息
     Account *acct = [Util loginAccount];
@@ -51,7 +48,7 @@
 {
     NSLog(@"%s", __FUNCTION__);
     
-    [QRUtil decodeWithViewController:self delegate:self];
+    [QRUtil decodeWithViewController:self delegate:self isFront:YES isStore:YES dictionary:@{QRDicInfoKey:[Util currentLoginUserId]}];
     
 }
 
@@ -63,12 +60,6 @@
     Account *acct = [Util loginAccount];
     UIImage *img = [QRUtil generateUsingString:[NSString stringWithFormat:@"%@_%@", acct.username, [[NSDate date] fullDateString]]];
     self.qrcodeView.image = img;
-//    self.qrcodeView.hidden = NO;
-//    [self performBlock:^{
-//        self.qrcodeView.hidden = YES;
-//        NSLog(@"\n%s, the QRCode view has hidden.", __FUNCTION__);
-//    } afterDelay:60.0];
-    
 }
 
 /**
@@ -76,8 +67,7 @@
  */
 - (IBAction) flushCard:(id)sender
 {
-    isVerify = NO;
-    [QRUtil decodeWithViewController:self delegate:self];
+    [QRUtil decodeWithViewController:self delegate:self isFront:YES];
 }
 
 
@@ -92,75 +82,58 @@
 }
 
 /**
- *  @abstract 二维码扫描结束
+ *  @abstract 用户模式下扫描结束
+ *
  */
-- (void) qrCodeVideController:(QrSearchViewController *) qrCodeViewController didFinishedWithString:(NSString *) str
+- (void) qrCodeViewController:(QrSearchViewController *)qrCodeViewController didFinishedCustomWithString:(NSString *)str
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:str delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-    [alert show];
-    NSLog(@"%@", str);
+    //商家的信息就只有一个商家的id
+    DataManager *manager = [DataManager defaultInstance];
     
+    NSDictionary *dict = @{@"cardid" : [Util generateUUID],
+                           @"cardname" : @"KarBao Test",
+                           @"carduser" : [Util currentLoginUserId],
+                           @"createuser" : str,
+                           @"createtime" : [NSDate date]};
+    Card *aCard = [manager syncCard:dict];
+    CardSelectedViewController *viewController = (CardSelectedViewController *) [self.storyboard instantiateViewControllerWithIdentifier:@"CardSelected"];
+    viewController.card = aCard;
     
-    //数据验证
+    [self.navigationController pushViewController:viewController animated:YES];    
+}
+
+/**
+ *  @abstract 店家模式下扫描结束
+ *
+ */
+- (void) qrCodeViewController:(QrSearchViewController *)qrCodeViewController didFinishedStoreWithString:(NSString *)str
+{
+    //店家扫完商家的信息后需要进行判断，如果是我家店的信息，那么久可以用
+    //店家扫描得到的信息目前由三部分组成：店家id_用户id_时间
     NSArray *arr = [str componentsSeparatedByString:@"_"];
-    if (arr.count != 2) {
-        NSString *str2 = [str stringByAppendingString:@"，不符合规定"];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:str2 delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-        [alert show];
+    if (arr.count != 3) {
         return ;
     }
     
-    //时间验证
-    NSDate *date = [NSDate covertDateFromString:[arr objectAtIndex:1]];
-    NSDate *now = [NSDate date];
-//    NSLog(@"%f,%f,%f", date.timeIntervalSince1970, now.timeIntervalSince1970, now.timeIntervalSince1970 - date.timeIntervalSince1970);
-//    NSLog(@"%@, %@", date, now);
+    NSString *storeid = [arr objectAtIndex:0];
+    NSString *cardid = [arr objectAtIndex:1];
+    NSString *time = [arr objectAtIndex:2];
     
+    //时间验证
+    NSDate *date = [NSDate covertDateFromString:time];
+    NSDate *now = [NSDate date];
     //5分钟之内
     if (now.timeIntervalSince1970 - date.timeIntervalSince1970 > 300)
     {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"二维码已超时，戳它试试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
         return ;
     }
     
+    NSLog(@"已经刷卡,cardid: %@, in store num:%@", cardid, storeid);
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"交易成功" message:[NSString stringWithFormat:@"card：%@\n store:%@", cardid, storeid] delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+    [alert show];
     
-    if (isVerify) {
-        //验证模式
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"交易成功" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-        [alert show];
-        
-    }else {
-        //刷卡模式
-        //需要进入另外一个页面，然后列出所有可用的卡片，点击卡片显示卡片的二维码，然后进行交易。（多个卡片）
-        //或者直接弹出界面，直接进行交易。（单个卡片）
-//        NSArray *cards = [[DataManager defaultInstance] getchObjsByCreateUser:[arr objectAtIndex:0]];
-//        if (cards.count == 0) {
-//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您没有此处的会员卡，要不要戳一下？" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"办理", nil];
-//            [alert show];
-//        }else if (cards.count ==1){
-//            CardSelectedViewController *viewController = (CardSelectedViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"CardSelected"];
-//            [self.navigationController pushViewController:viewController animated:YES];
-//            viewController.card = [cards objectAtIndex:0];
-//        }else if (cards.count > 1) {
-//            CardSelectedListViewController *listViewController = (CardSelectedListViewController *) [self.storyboard instantiateViewControllerWithIdentifier:@"CardSelectedList"];
-//            [self.navigationController pushViewController:listViewController animated:YES];
-//            listViewController.storeinfo = [arr objectAtIndex:0];
-//        }
-        //根据店家生成一个card
-        DataManager *manager = [DataManager defaultInstance];
-        
-        NSDictionary *dict = @{@"cardid" : [Util generateUUID],
-                               @"cardname" : @"KarBao Test",
-                               @"carduser" : [Util currentLoginUserId],
-                               @"createuser" : [arr objectAtIndex:0],
-                               @"createtime" : date};
-        
-        Card *aCard = [manager syncCard:dict];
-        CardSelectedViewController *viewController = (CardSelectedViewController *) [self.storyboard instantiateViewControllerWithIdentifier:@"CardSelected"];
-        viewController.card = aCard;
-        [self.navigationController pushViewController:viewController animated:YES];
-        isVerify = YES;
-        
-    }
 }
 
 
