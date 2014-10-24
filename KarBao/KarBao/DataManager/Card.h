@@ -2,7 +2,7 @@
 //  Card.h
 //  KarBao
 //
-//  Created by Caland on 14-10-20.
+//  Created by Caland on 14-10-23.
 //  Copyright (c) 2014年 Caland. All rights reserved.
 //
 
@@ -16,7 +16,7 @@
 @property (nonatomic, retain) NSString * cardid;
 @property (nonatomic, retain) NSString * cardname;
 @property (nonatomic, retain) NSString * carduser;
-@property (nonatomic, retain) NSDate * createtime;
+@property (nonatomic, retain) NSData * createtime;
 @property (nonatomic, retain) NSString * createuser;
 @property (nonatomic, retain) User *card;
 
