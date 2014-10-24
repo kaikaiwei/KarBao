@@ -4,7 +4,7 @@
         <attribute name="cardid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cardname" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="carduser" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="createtime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="createtime" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="createuser" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="card" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
     </entity>
@@ -14,7 +14,7 @@
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Card" positionX="-290" positionY="-9" width="128" height="135"/>
         <element name="User" positionX="-119" positionY="-9" width="128" height="88"/>
-        <element name="Card" positionX="-290" positionY="-9" width="128" height="133"/>
     </elements>
 </model>

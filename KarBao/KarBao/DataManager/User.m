@@ -2,7 +2,7 @@
 //  User.m
 //  KarBao
 //
-//  Created by Caland on 14-10-20.
+//  Created by Caland on 14-10-23.
 //  Copyright (c) 2014年 Caland. All rights reserved.
 //
 
@@ -11,8 +11,8 @@
 
 @implementation User
 
+@dynamic createtime;
 @dynamic userid;
 @dynamic username;
-@dynamic createtime;
 
 @end

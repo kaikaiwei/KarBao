@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F814D07519F8F8EC00836D80 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = F814D07419F8F8EC00836D80 /* Card.m */; };
+		F814D07819F8F8ED00836D80 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F814D07719F8F8ED00836D80 /* User.m */; };
 		F8281E3B19EE59300087E42B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F8281E3A19EE59300087E42B /* main.m */; };
 		F8281E3E19EE59300087E42B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F8281E3D19EE59300087E42B /* AppDelegate.m */; };
 		F8281E4619EE59300087E42B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8281E4519EE59300087E42B /* Images.xcassets */; };
@@ -46,8 +48,6 @@
 		F886431F19EFCBEE007E169D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F886431E19EFCBEE007E169D /* CFNetwork.framework */; };
 		F886432119EFCE5F007E169D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F886432019EFCE5F007E169D /* SystemConfiguration.framework */; };
 		F886432319EFCE93007E169D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F886432219EFCE93007E169D /* MobileCoreServices.framework */; };
-		F88BA8A319F4E20700EF56DB /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F88BA8A219F4E20700EF56DB /* User.m */; };
-		F88BA8A619F4E20700EF56DB /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = F88BA8A519F4E20700EF56DB /* Card.m */; };
 		F88BA8AF19F4E3B600EF56DB /* DataManager+Card.m in Sources */ = {isa = PBXBuildFile; fileRef = F88BA8AE19F4E3B600EF56DB /* DataManager+Card.m */; };
 		F88BA8B719F4E81C00EF56DB /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = F88BA8B619F4E81C00EF56DB /* Account.m */; };
 		F88BA8C219F50B8400EF56DB /* CardSelectedListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F88BA8C119F50B8400EF56DB /* CardSelectedListViewController.m */; };
@@ -87,6 +87,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F814D07319F8F8EC00836D80 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Card.h; path = DataManager/Card.h; sourceTree = "<group>"; };
+		F814D07419F8F8EC00836D80 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Card.m; path = DataManager/Card.m; sourceTree = "<group>"; };
+		F814D07619F8F8ED00836D80 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = DataManager/User.h; sourceTree = "<group>"; };
+		F814D07719F8F8ED00836D80 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = DataManager/User.m; sourceTree = "<group>"; };
 		F8281E3519EE59300087E42B /* KarBao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KarBao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8281E3919EE59300087E42B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8281E3A19EE59300087E42B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -146,10 +150,6 @@
 		F886431E19EFCBEE007E169D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		F886432019EFCE5F007E169D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F886432219EFCE93007E169D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		F88BA8A119F4E20700EF56DB /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = DataManager/User.h; sourceTree = "<group>"; };
-		F88BA8A219F4E20700EF56DB /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = DataManager/User.m; sourceTree = "<group>"; };
-		F88BA8A419F4E20700EF56DB /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Card.h; path = DataManager/Card.h; sourceTree = "<group>"; };
-		F88BA8A519F4E20700EF56DB /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Card.m; path = DataManager/Card.m; sourceTree = "<group>"; };
 		F88BA8AD19F4E3B600EF56DB /* DataManager+Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DataManager+Card.h"; path = "DataManager/service/DataManager+Card.h"; sourceTree = "<group>"; };
 		F88BA8AE19F4E3B600EF56DB /* DataManager+Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DataManager+Card.m"; path = "DataManager/service/DataManager+Card.m"; sourceTree = "<group>"; };
 		F88BA8B519F4E81C00EF56DB /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Account.h; path = DataManager/Account.h; sourceTree = "<group>"; };
@@ -482,10 +482,10 @@
 		F8BF1EEF19F0CCB3005D7589 /* managedobjs */ = {
 			isa = PBXGroup;
 			children = (
-				F88BA8A419F4E20700EF56DB /* Card.h */,
-				F88BA8A519F4E20700EF56DB /* Card.m */,
-				F88BA8A119F4E20700EF56DB /* User.h */,
-				F88BA8A219F4E20700EF56DB /* User.m */,
+				F814D07619F8F8ED00836D80 /* User.h */,
+				F814D07719F8F8ED00836D80 /* User.m */,
+				F814D07319F8F8EC00836D80 /* Card.h */,
+				F814D07419F8F8EC00836D80 /* Card.m */,
 			);
 			name = managedobjs;
 			sourceTree = "<group>";
@@ -644,9 +644,9 @@
 				F882A6FF19EFB66400DC4EFA /* NSObject+DelayBlocks.m in Sources */,
 				F8281E3E19EE59300087E42B /* AppDelegate.m in Sources */,
 				F882A6BF19EFAAD400DC4EFA /* TabbarManager.m in Sources */,
-				F88BA8A319F4E20700EF56DB /* User.m in Sources */,
 				F88BA8AF19F4E3B600EF56DB /* DataManager+Card.m in Sources */,
-				F88BA8A619F4E20700EF56DB /* Card.m in Sources */,
+				F814D07519F8F8EC00836D80 /* Card.m in Sources */,
+				F814D07819F8F8ED00836D80 /* User.m in Sources */,
 				F882A6BA19EF9BF300DC4EFA /* CreateUserViewController.m in Sources */,
 				F8BF1EFB19F0FCFC005D7589 /* Util.m in Sources */,
 				F882A6FE19EFB66400DC4EFA /* NSDate+Additions.m in Sources */,
@@ -817,7 +817,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
@@ -842,7 +842,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
